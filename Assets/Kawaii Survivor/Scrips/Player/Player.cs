@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     [Header("Components")]
     [SerializeField] private CircleCollider2D collider;
     [SerializeField] private SpriteRenderer playerRenderer;
+    
     private PlayerHealth playerHealth;
     private PlayerLevel playerLevel;
 
@@ -28,6 +29,10 @@ public class Player : MonoBehaviour
         CharacterSelectionManager.onCharacterSelected += CharacterSelectionCallback;
     }
 
+    private void Start()
+    {
+    }
+
     private void CharacterSelectionCallback(CharacterDataSO characterData)
     {
         playerRenderer.sprite = characterData.Sprite;
@@ -37,16 +42,12 @@ public class Player : MonoBehaviour
     {
         CharacterSelectionManager.onCharacterSelected -= CharacterSelectionCallback; 
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+    
 
     // Update is called once per frame
     void Update()
     {
-
+        // 移动与冲刺在 `PlayerController` 中处理，这里保留用于其它非移动更新（如果需要）
     }
 
     public void TakeDamage(int damage)

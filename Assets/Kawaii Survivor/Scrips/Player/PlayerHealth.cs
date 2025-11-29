@@ -19,6 +19,7 @@ public class PlayerHealth : MonoBehaviour, IPlayerStatsDependency
     private float healthRecoverySpeed;
     private float healthRecoverySpeedTimer;
     private float healthRecoverySpeedDuration;
+    private bool isInvincible = false;
 
 
     [Header("Elements")]
@@ -80,6 +81,9 @@ public class PlayerHealth : MonoBehaviour, IPlayerStatsDependency
 
     public void TakeDamage(int damage)
     {
+        if (isInvincible)
+            return;
+
         if (ShouldDodge())
         {
             onAttackDodge?.Invoke(transform.position);
@@ -93,6 +97,11 @@ public class PlayerHealth : MonoBehaviour, IPlayerStatsDependency
         UpdateUI();
 
         if (health <= 0) PassAway();
+    }
+
+    public void SetInvincible(bool inv)
+    {
+        isInvincible = inv;
     }
 
     private bool ShouldDodge()

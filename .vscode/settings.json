@@ -54,7 +54,8 @@
         "ProjectSettings/": true,
         "UserSettings/": true,
         "temp/": true,
-        "Temp/": true
+        "Temp/": true,
+        "editor.smartIndent":true
     },
     "dotnet.defaultSolution": "Kawaiii_Survivor.sln"
 }
