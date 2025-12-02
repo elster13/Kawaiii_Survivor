@@ -13,7 +13,6 @@ public class Zoomby : Enemy
     [Header("Elements")]
     [SerializeField] private Slider healthBar;
     [SerializeField] private TextMeshProUGUI healthText;
-    [SerializeField] private Animator animator;
 
     enum State { None, Idle, Moving, Attacking }
 

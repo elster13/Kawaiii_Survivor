@@ -57,6 +57,10 @@ public class WaveTransitionManager : MonoBehaviour, IGameStateListener
 
     private void TryOpenChest()
     {
+        // ensure upgrade UI hidden first so chest UI always appears on top and prevents overlap
+        if (upgradeContainersParent != null)
+            upgradeContainersParent.SetActive(false);
+
         chestContainerParent.Clear();
 
         if (chestCollected > 0)
@@ -64,6 +68,12 @@ public class WaveTransitionManager : MonoBehaviour, IGameStateListener
         else
             ConfigureUpgradeContainers();
 
+    }
+
+    private System.Collections.IEnumerator ShowUpgradesWhenChestCleared()
+    {
+        // This coroutine is no longer used. Kept for compatibility but will immediately exit.
+        yield break;
     }
 
     private void ShowObject()
@@ -78,20 +88,32 @@ public class WaveTransitionManager : MonoBehaviour, IGameStateListener
         ChestObjectContainer containerInstance = Instantiate(chestContainerPrefab, chestContainerParent);
         containerInstance.Configure(randomObjectData);
 
-        containerInstance.TakeButton.onClick.AddListener(() => TakeButtonCallback(randomObjectData));
-        containerInstance.RecycleButton.onClick.AddListener(() => RecycleButtonCallback(randomObjectData));
+        // Ensure the chest UI instance is removed immediately when player takes/recycles,
+        // then continue the TryOpenChest flow so upgrades won't overlap the chest UI.
+        containerInstance.TakeButton.onClick.AddListener(() => StartCoroutine(HandleChestClosedCoroutine(true, randomObjectData, containerInstance)));
+        containerInstance.RecycleButton.onClick.AddListener(() => StartCoroutine(HandleChestClosedCoroutine(false, randomObjectData, containerInstance)));
     }
 
-    private void TakeButtonCallback(ObjectDataSO objectToTake)
+    private System.Collections.IEnumerator HandleChestClosedCoroutine(bool isTake, ObjectDataSO objectData, ChestObjectContainer containerInstance)
     {
-        playerObjects.AddObject(objectToTake);
-        TryOpenChest();
-    }
+        // perform the take or recycle action
+        if (isTake)
+            playerObjects.AddObject(objectData);
+        else
+            CurrencyManager.instance.AddCurrency(objectData.RecyclePrice);
 
-    private void RecycleButtonCallback(ObjectDataSO objectToRecycle)
-    {
-        CurrencyManager.instance.AddCurrency(objectToRecycle.RecyclePrice);
-        TryOpenChest();
+        // destroy the UI instance so it's removed from screen
+        if (containerInstance != null)
+            Destroy(containerInstance.gameObject);
+
+        // wait one frame to allow Destroy to process and Canvas to update
+        yield return null;
+
+        // continue flow: if there are more chests show next, otherwise show upgrades
+        if (chestCollected > 0)
+            ShowObject();
+        else
+            ConfigureUpgradeContainers();
     }
 
     [Button]

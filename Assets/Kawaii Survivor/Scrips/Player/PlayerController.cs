@@ -24,6 +24,9 @@ public class PlayerController : MonoBehaviour, IPlayerStatsDependency
     [Header("Settings")]
     [SerializeField] private float baseMoveSpeed;
     private float moveSpeed;
+    [Header("Compatibility")]
+    [Tooltip("Global speed scale to tune movement feel without changing baseMoveSpeed values (use <1 to slow down).")]
+    [SerializeField] private float speedScale = 1f;
 
     [Header("Dash")]
     [Tooltip("冲刺时使用的固定移动速度（用于覆盖普通移动速度），单位与 baseMoveSpeed 保持一致")]
@@ -74,8 +77,8 @@ public class PlayerController : MonoBehaviour, IPlayerStatsDependency
             movementDir = input.sqrMagnitude > 0.0001f ? input.normalized : Vector2.zero;
         }
 
-        // 保持与原实现兼容：使用项目中既有的缩放方式乘以 Time.deltaTime
-        rig.velocity = movementDir * currentSpeed * Time.deltaTime;
+        // 直接设置 velocity（units/sec）。`speedScale` 用于快速调整整体速度平衡。
+        rig.velocity = movementDir * currentSpeed * speedScale;
 
         // 处理Sprite翻转，实现左右转向效果
         if (movementDir.x < 0)

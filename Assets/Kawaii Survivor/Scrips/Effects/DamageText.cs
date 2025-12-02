@@ -10,10 +10,14 @@ public class DamageText : MonoBehaviour
     [SerializeField] private TextMeshPro damageText;
 
     [NaughtyAttributes.Button]
-    public void Animate(string damage, bool isCriticalHit)
+    public void Animate(string damage, bool isCriticalHit, Color? forcedColor = null)
     {
         damageText.text = damage.ToString();
-        damageText.color = isCriticalHit ? Color.yellow : Color.white;
+        if (isCriticalHit)
+            damageText.color = Color.yellow;
+        else
+            damageText.color = forcedColor ?? Color.white;
+
         animator.Play("Animate");
     }
 }

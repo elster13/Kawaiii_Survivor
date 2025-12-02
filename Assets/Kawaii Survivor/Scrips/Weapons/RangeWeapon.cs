@@ -19,6 +19,13 @@ public class RangeWeapon : Weapon
     // Start is called before the first frame update
     void Start()
     {
+        if (bulletPrefab == null)
+        {
+            Debug.LogError("RangeWeapon: bulletPrefab is not assigned on " + gameObject.name + ". Assign a Bullet prefab in the inspector.");
+            this.enabled = false;
+            return;
+        }
+
         bulletPool = new ObjectPool<Bullet>(CreateFunction, ActionOnGet, ActionOnRelease, ActionOnDestroy);
     }
 

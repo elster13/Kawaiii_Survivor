@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Fireball sprite: orange/red core with flame shapes, glow and subtle rim -->
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <defs>
+    <radialGradient id="fireCore" cx="45%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="20%" stop-color="#ffefb5" stop-opacity="1"/>
+      <stop offset="45%" stop-color="#ffb25a" stop-opacity="1"/>
+      <stop offset="75%" stop-color="#ff6a2b" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#d93b00" stop-opacity="0.9"/>
+    </radialGradient>
+
+    <filter id="bigGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="20" result="g1"/>
+      <feColorMatrix in="g1" type="matrix" values="1 0 0 0 0.98  0 0 0 0 0.53  0 0 0 0 0.2  0 0 0 0.6 0"/>
+      <feBlend in="SourceGraphic" mode="screen"/>
+    </filter>
+  </defs>
+
+  <!-- outer soft glow -->
+  <circle cx="128" cy="96" r="78" fill="#ff7a3d" opacity="0.4" filter="url(#bigGlow)" />
+
+  <!-- main core -->
+  <g>
+    <circle cx="128" cy="96" r="48" fill="url(#fireCore)" />
+  </g>
+
+  <!-- inner highlight -->
+  <ellipse cx="110" cy="78" rx="16" ry="8" fill="#fff7d6" opacity="0.6"/>
+
+  <!-- stylized flame shapes -->
+  <path d="M96 120 C100 90 124 78 132 92 C140 106 150 74 170 88 C160 60 200 60 200 88 C212 96 208 130 176 142 C152 152 130 148 120 140 C108 130 98 132 96 120 Z"
+        fill="url(#fireCore)" opacity="0.95" transform="translate(-8,-8) scale(0.95)" />
+
+  <!-- small sparks -->
+  <g fill="#ffd8a6" opacity="0.9">
+    <circle cx="190" cy="62" r="3" />
+    <circle cx="54" cy="78" r="2" />
+    <circle cx="200" cy="110" r="2.5" />
+  </g>
+
+  <!-- rim -->
+  <circle cx="128" cy="96" r="56" fill="none" stroke="#ffb07a" stroke-opacity="0.18" stroke-width="2" />
+
+</svg>

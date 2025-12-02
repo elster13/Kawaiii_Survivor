@@ -16,13 +16,19 @@ public class WeaponPosition : MonoBehaviour
     {
 
     }
+    [Header("Mount Offset")]
+    [SerializeField] private Vector3 localPositionOffset = Vector3.zero;
+    [SerializeField] private Vector3 localEulerOffset = Vector3.zero;
+    [SerializeField] private Vector3 localScale = Vector3.one;
 
     public void AssignWeapon(Weapon weapon, int weaponLevel)
     {
         Weapon = Instantiate(weapon, transform);
 
-        Weapon.transform.localPosition = Vector3.zero;
-        Weapon.transform.localRotation = Quaternion.identity;
+        // Apply configurable local offsets so the Prefab's local origin can be adjusted
+        Weapon.transform.localPosition = localPositionOffset;
+        Weapon.transform.localRotation = Quaternion.Euler(localEulerOffset);
+        Weapon.transform.localScale = localScale;
 
         Weapon.UpgradeTo(weaponLevel);
     }

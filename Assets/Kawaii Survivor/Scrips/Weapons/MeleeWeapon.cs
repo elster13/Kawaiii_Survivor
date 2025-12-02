@@ -103,6 +103,9 @@ public class MeleeWeapon : Weapon
         {
             Enemy enemy = enemies[i].GetComponent<Enemy>();
 
+            if (enemy == null || enemy.IsDead())
+                continue;
+
             if (!damagedEnemies.Contains(enemy))
             {
                 int damage = GetDamage(out bool isCriticalHit);

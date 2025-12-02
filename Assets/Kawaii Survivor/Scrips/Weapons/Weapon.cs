@@ -66,6 +66,9 @@ public abstract class Weapon : MonoBehaviour, IPlayerStatsDependency
         for (int i = 0; i < enemies.Length; i++)
         {
             Enemy enmyCheck = enemies[i].GetComponent<Enemy>();
+            if (enmyCheck == null || enmyCheck.IsDead())
+                continue;
+
             float distanceToEnemy = Vector2.Distance(transform.position, enmyCheck.transform.position);
 
             if (distanceToEnemy < minDistance)

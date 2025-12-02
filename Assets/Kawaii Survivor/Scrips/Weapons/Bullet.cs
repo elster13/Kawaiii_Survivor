@@ -42,7 +42,7 @@ public class Bullet : MonoBehaviour
         this.rangeWeapon = rangeWeapon;
     }
 
-    public void Shoot(int damage, Vector2 direction, bool isCriticalHit)
+    public virtual void Shoot(int damage, Vector2 direction, bool isCriticalHit)
     {
         Invoke("Release", 1);
 
@@ -53,7 +53,7 @@ public class Bullet : MonoBehaviour
         rig.velocity = direction * moveSpeed;
     }
 
-    public void Reload()
+    public virtual void Reload()
     {
         target = null;
 
@@ -69,6 +69,8 @@ public class Bullet : MonoBehaviour
         if (IsInLayerMark(collider.gameObject.layer, enemyMark))
         {
             target = collider.GetComponent<Enemy>();
+            if (target == null || target.IsDead())
+                return;
 
             CancelInvoke();
 
@@ -77,7 +79,7 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    private void Release()
+    protected void Release()
     {
         if(!gameObject.activeSelf)
             return;

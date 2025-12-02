@@ -28,6 +28,7 @@ public class PlayerHealth : MonoBehaviour, IPlayerStatsDependency
 
     [Header("Actions")]
     public static Action<Vector2> onAttackDodge;
+    public static Action<int, Vector2> onPlayerDamaged;
 
     private void Awake()
     {
@@ -93,6 +94,9 @@ public class PlayerHealth : MonoBehaviour, IPlayerStatsDependency
         float realDamage = damage * Mathf.Clamp(1 - (armor / 1000), 0, 1000);
         realDamage = Mathf.Min(realDamage, health);
         health -= realDamage;
+
+        // notify listeners to show floating damage on player
+        onPlayerDamaged?.Invoke((int)realDamage, transform.position);
 
         UpdateUI();
 
