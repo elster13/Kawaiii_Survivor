@@ -16,6 +16,12 @@ public class RangeWeapon : Weapon
     [Header("Actions")]
     public static Action onBulletShot;
 
+    [Header("Debug")]
+    [SerializeField] private bool debugLogs = false;
+
+    // runtime debug
+    private Enemy lastTarget = null;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -73,9 +79,23 @@ public class RangeWeapon : Weapon
             targetUpVector = (closestEnemy.GetCenter() -(Vector2) transform.position).normalized;
             transform.up = targetUpVector;
 
+            // debug: detect when we have a target vs not
+            if (debugLogs && lastTarget != closestEnemy)
+            {
+                Debug.Log($"[RangeWeapon:{gameObject.name}] Acquired target: {closestEnemy.name}");
+            }
+            lastTarget = closestEnemy;
+
             ManagerShooting();
             return;
         }
+        // no target
+        if (debugLogs && lastTarget != null)
+        {
+            Debug.Log($"[RangeWeapon:{gameObject.name}] Lost target");
+            lastTarget = null;
+        }
+
         transform.up = Vector3.Lerp(transform.up, targetUpVector, Time.deltaTime * armLerp);
 
     }
@@ -96,6 +116,9 @@ public class RangeWeapon : Weapon
 
         Bullet bulletInstance = bulletPool.Get();
         bulletInstance.Shoot(damage, transform.up, isCriticalHit);
+
+        if (debugLogs)
+            Debug.Log($"[RangeWeapon:{gameObject.name}] Shoot called (damage={damage}, crit={isCriticalHit})");
 
         onBulletShot?.Invoke();
 

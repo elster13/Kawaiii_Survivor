@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: MrSwingy Data
   m_EditorClassIdentifier: 
   <Name>k__BackingField: MrSwingy
-  <Sprite>k__BackingField: {fileID: 21300000, guid: dac71ecc77ba99d4f8fcad927f8b473c, type: 3}
+  <Sprite>k__BackingField: {fileID: 21300000, guid: d3ab081d95e765943aff2afc0d56dbf0, type: 3}
   <PurchasePrice>k__BackingField: 18
   <RecyclePrice>k__BackingField: 10
-  <AttackSound>k__BackingField: {fileID: 8300000, guid: 2afdf042acaa39c49b939d00655ebe62, type: 3}
+  <AttackSound>k__BackingField: {fileID: 8300000, guid: c673fb9cf3e24d443b75f2de39c6fb01, type: 3}
   <AnimatorOverride>k__BackingField: {fileID: 0}
   <Prefab>k__BackingField: {fileID: 7887455582762492888, guid: 1fa21c99146985d499883d985bcb6f4b, type: 3}
   attack: 15

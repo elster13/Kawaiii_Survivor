@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LePew Data
   m_EditorClassIdentifier: 
   <Name>k__BackingField: LePew
-  <Sprite>k__BackingField: {fileID: -2774315149639988039, guid: 6ba2bdba88302454a9f673c897dc6631, type: 3}
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 542523e95c7eecb4393db67da96ed931, type: 3}
   <PurchasePrice>k__BackingField: 10
   <RecyclePrice>k__BackingField: 5
   <AttackSound>k__BackingField: {fileID: 8300000, guid: f7bdbeca28170df478ac865f6729a5e2, type: 3}

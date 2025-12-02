@@ -54,7 +54,7 @@ MonoBehaviour:
   damage: 0
   attackDelay: 1
   animator: {fileID: 6373836320460580702}
-  armLerp: 20
+  armLerp: 12
   hitDetectionTransform: {fileID: 1826485583411231118}
   hitCollider: {fileID: 5277472517426589575}
 --- !u!95 &6373836320460580702

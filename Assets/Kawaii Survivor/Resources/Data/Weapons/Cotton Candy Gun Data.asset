@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cotton Candy Gun Data
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Cotton Candy Gun
-  <Sprite>k__BackingField: {fileID: 21300000, guid: 84f07b27a38eda042b5858622cbeaf52, type: 3}
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 419b2253f61d76f44b62b79333e29d37, type: 3}
   <PurchasePrice>k__BackingField: 20
   <RecyclePrice>k__BackingField: 10
   <AttackSound>k__BackingField: {fileID: 8300000, guid: f7bdbeca28170df478ac865f6729a5e2, type: 3}
