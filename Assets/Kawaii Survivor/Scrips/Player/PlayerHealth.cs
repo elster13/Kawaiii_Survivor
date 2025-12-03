@@ -96,7 +96,14 @@ public class PlayerHealth : MonoBehaviour, IPlayerStatsDependency
         health -= realDamage;
 
         // notify listeners to show floating damage on player
-        onPlayerDamaged?.Invoke((int)realDamage, transform.position);
+        // Use rounded display value so very small fractional damage doesn't show as 0
+        int displayDamage = 0;
+        if (realDamage > 0f)
+        {
+            // Round to nearest int, but ensure at least 1 is shown for any non-zero damage
+            displayDamage = Mathf.Max(1, Mathf.RoundToInt(realDamage));
+        }
+        onPlayerDamaged?.Invoke(displayDamage, transform.position);
 
         UpdateUI();
 
