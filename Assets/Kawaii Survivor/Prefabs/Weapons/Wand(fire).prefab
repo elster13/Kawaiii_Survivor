@@ -25,14 +25,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 727193958681788158}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.35527733, w: 0.9347609}
-  m_LocalPosition: {x: 0.11, y: 0.21000001, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.35891154, w: 0.93337154}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2345887901492043111}
   m_Father: {fileID: 9089914730280214665}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -41.621}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -42.067}
 --- !u!212 &8302895838569197841
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: -1001028301
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 542523e95c7eecb4393db67da96ed931, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cbf0081e4a184d648ad5218b2b1a7aec, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 8034807398281559512}
   - component: {fileID: 9190309954542751860}
   m_Layer: 0
-  m_Name: LePew
+  m_Name: Wand(fire)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,7 +112,7 @@ Transform:
   m_GameObject: {fileID: 1837644310387574039}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.32, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -131,16 +131,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1dbe6ebf75725446b7b295bc2e10858, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <WeaponData>k__BackingField: {fileID: 11400000, guid: 514764c21f7f15245b621cc0d459485d, type: 2}
+  <WeaponData>k__BackingField: {fileID: 11400000, guid: ee5f90e50ab51044eabf0686868cdc67, type: 2}
   range: 0
   enemyMask:
     serializedVersion: 2
     m_Bits: 64
   damage: 0
-  attackDelay: 0.5
+  attackDelay: 0.7
   animator: {fileID: 9190309954542751860}
   armLerp: 12
-  bulletPrefab: {fileID: 7330252722053441246, guid: b48f149634ac8ea478f096652b0ac8b6, type: 3}
+  bulletPrefab: {fileID: 4927647965127902424, guid: 710301a3bc4ae8447b736f239f2bd948, type: 3}
   shootingPoint: {fileID: 2345887901492043111}
 --- !u!95 &9190309954542751860
 Animator:
@@ -187,13 +187,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6461622162380095241}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.39, y: 0.39, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.3575564, w: 0.9338916}
+  m_LocalPosition: {x: -1.08, y: 1.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2780668083939849104}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 41.9}
 --- !u!1 &9066848794919118575
 GameObject:
   m_ObjectHideFlags: 0

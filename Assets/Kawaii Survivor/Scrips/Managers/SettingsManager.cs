@@ -12,10 +12,7 @@ public class SettingsManager : MonoBehaviour, IWantToBeSaved
     [Header("Elements")]
     [SerializeField] private Button sfxButton;
     [SerializeField] private Button musicButton;
-    [SerializeField] private Button privacyPolicyButton;
-    [SerializeField] private Button askButton;
-    [SerializeField] private Button creditsButton;
-    [SerializeField] private GameObject creditsPanel;
+
 
     [Header("Settings")]
     [SerializeField] private Color onColor;
@@ -37,21 +34,12 @@ public class SettingsManager : MonoBehaviour, IWantToBeSaved
         musicButton.onClick.RemoveAllListeners();
         musicButton.onClick.AddListener(MusicButtonCallback);
 
-        privacyPolicyButton.onClick.RemoveAllListeners();
-        privacyPolicyButton.onClick.AddListener(PrivacyPolicyButtonCallback);
-
-        askButton.onClick.RemoveAllListeners();
-        askButton.onClick.AddListener(AskButtonCallback);
-
-        creditsButton.onClick.RemoveAllListeners();
-        creditsButton.onClick.AddListener(CreditsButtonCallback);
 
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        HideCreditsPanel();
 
         onSFXStateChanged?.Invoke(sfxState);
         onMusicStateChanged?.Invoke(musicState);
@@ -131,8 +119,6 @@ public class SettingsManager : MonoBehaviour, IWantToBeSaved
         return UnityWebRequest.EscapeURL(s).Replace("+", "%20");
     }
 
-    private void CreditsButtonCallback() => creditsPanel.SetActive(true);
-    public void HideCreditsPanel() => creditsPanel.SetActive(false);
 
     public void Load()
     {

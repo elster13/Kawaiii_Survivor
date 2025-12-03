@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pop
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Pop
-  <Sprite>k__BackingField: {fileID: 21300000, guid: 1b2a36f142a2e99459ea6a99b304416d, type: 3}
+  <Sprite>k__BackingField: {fileID: 926170719, guid: d7d21cb816b53434cb571f52793121ef, type: 3}
   <PurchasePrice>k__BackingField: 300
   attack: 20
   attackSpeed: 2

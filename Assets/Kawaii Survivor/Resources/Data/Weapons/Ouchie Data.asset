@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a266dce695fe3bb4b9393836ec88944f, type: 3}
   m_Name: Ouchie Data
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: OutChie
+  <Name>k__BackingField: Bayonet
   <Sprite>k__BackingField: {fileID: 21300000, guid: 170c0214d753cde48b8c34130cf22d27, type: 3}
   <PurchasePrice>k__BackingField: 10
   <RecyclePrice>k__BackingField: 5

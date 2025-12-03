@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7887455582762492888}
   - component: {fileID: 6373836320460580702}
   m_Layer: 0
-  m_Name: MrSwingy
+  m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,13 +46,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efd14954badfffd4cb5ba35242001417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <WeaponData>k__BackingField: {fileID: 11400000, guid: 456d95d30d2d7604e92528c5a718ff03, type: 2}
+  <WeaponData>k__BackingField: {fileID: 11400000, guid: 43c347159032e15418d322eaa271e73e, type: 2}
   range: 0
   enemyMask:
     serializedVersion: 2
     m_Bits: 64
   damage: 0
-  attackDelay: 1.3
+  attackDelay: 1
   animator: {fileID: 6373836320460580702}
   armLerp: 12
   hitDetectionTransform: {fileID: 1826485583411231118}
@@ -135,13 +135,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6148477379056442224}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.91335714, w: 0.4071594}
-  m_LocalPosition: {x: -0.21999998, y: 0.18999994, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7347949622728980244}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 131.947}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
 --- !u!61 &5277472517426589575
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -174,7 +174,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.21501052, y: 0.11305085}
+  m_Offset: {x: 0.0041282177, y: -0.00000035762787}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -185,7 +185,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.9144566, y: 1.3629084}
+  m_Size: {x: 0.5, y: 3}
   m_EdgeRadius: 0
 --- !u!1 &8334253874239179577
 GameObject:
@@ -212,14 +212,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8334253874239179577}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.3511576, y: 0.9363164, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.38268343, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1826485583411231118}
   m_Father: {fileID: 5100689410496279982}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: -41.116}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
 --- !u!212 &619027460097065689
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -261,7 +261,7 @@ SpriteRenderer:
   m_SortingLayerID: -1001028301
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d3ab081d95e765943aff2afc0d56dbf0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aea726aafb3676541a79900d1bc4768d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

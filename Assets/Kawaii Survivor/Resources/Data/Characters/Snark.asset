@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Snark
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Snark
-  <Sprite>k__BackingField: {fileID: 21300000, guid: 78d5bcd8cfde50148a6621800249b2f0, type: 3}
+  <Sprite>k__BackingField: {fileID: 926170719, guid: d7d21cb816b53434cb571f52793121ef, type: 3}
   <PurchasePrice>k__BackingField: 800
   attack: 40
   attackSpeed: 2
